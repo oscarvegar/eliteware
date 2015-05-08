@@ -12,7 +12,7 @@
 
 <?php
     /* add your email address */
-    $email_to = "example@example.com";
+    $email_to = "example@eliteware.io";
     $name = $_POST["name"];
     $subject = $_POST["subject"];
     $email = $_POST["email"];
