@@ -1,7 +1,7 @@
 /**
  * Main AngularJS Web Application
  */
-var app = angular.module('elitewareWebApp', ['ngRoute']);
+var app = angular.module('elitewareWebApp', ['ngRoute', 'HomeModule']);
 
 /**
  * Configure the Routes
@@ -11,8 +11,11 @@ app.config(['$routeProvider', function($routeProvider) {
 		// Home
 		.when("/", {
 			pageTitle: "Inicio",
-			templateUrl: "partials/home.html",
-			controller: "PageCtrl"
+			templateUrl: "partials/home.html"
+		})
+		.when("/home", {
+			pageTitle: "Inicio",
+			templateUrl: "partials/home.html"
 		})
 		// Pages
 		.when("/about-us", {
@@ -75,12 +78,14 @@ app.config(['$routeProvider', function($routeProvider) {
 			templateUrl: "partials/page-404-error.html",
 			controller: "PageCtrl"
 		});
+
 }]);
 
 app.run(['$location', '$rootScope', function($location, $rootScope) {
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
         $rootScope.pageTitle = current.$$route.pageTitle;
     });
+
 }]);
 
 /**
@@ -94,16 +99,6 @@ app.controller('BlogCtrl', function( /* $scope, $location, $http */ ) {
  * Controls all other Pages
  */
 app.controller('PageCtrl', function( /* $scope, $location, $http */ ) {
-	console.log("Page Controller reporting for duty.");
-	/*
-	// Activates the Carousel
-	$('.carousel').carousel({
-		interval: 5000
-	});
 
-	// Activates Tooltips for Social Links
-	$('.tooltip-social').tooltip({
-		selector: "a[data-toggle=tooltip]"
-	});
-	*/
 });
+
