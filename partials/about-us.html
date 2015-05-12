@@ -1209,3 +1209,37 @@ Latest Work Modal
     </div><!-- /container -->
 
 </div><!-- /modal -->
+<script>
+    /* ==========================================================================
+     Section Title Counter
+     ========================================================================== */
+    $(".section-title [data-to]").each(function () {
+        var $this = $(this);
+
+        $this.waypoint(function () {
+            $this.countTo({});
+        }, {offset: '60%', triggerOnce: true});
+    });
+
+
+    /* ==========================================================================
+     Progress Bars Animation
+     ========================================================================== */
+    $("[data-progress-percent]").each(function () {
+        var $this = $(this);
+
+        $this.waypoint(function () {
+            $this.animate({
+                width: $this.attr("data-progress-percent")
+            }, 1700, "linear");
+        }, {offset: '100%', triggerOnce: true });
+    });
+
+    $(".progress [data-to]").each(function () {
+        var $this = $(this);
+
+        $this.waypoint(function () {
+            $this.countTo({speed: 2000});
+        }, {offset: '100%', triggerOnce: true});
+    });
+</script>

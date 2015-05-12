@@ -6,9 +6,8 @@ var app = angular.module('elitewareWebApp', ['ngRoute', 'HomeModule']);
 /**
  * Configure the Routes
  */
-app.config(['$routeProvider', function($routeProvider) {
+app.config(function($routeProvider) {
 	$routeProvider
-		// Home
 		.when("/", {
 			pageTitle: "Inicio",
 			templateUrl: "partials/home.html"
@@ -79,12 +78,12 @@ app.config(['$routeProvider', function($routeProvider) {
 			controller: "PageCtrl"
 		});
 
-}]);
+});
 
 app.run(['$location', '$rootScope', function($location, $rootScope) {
-    $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
-        $rootScope.pageTitle = current.$$route.pageTitle;
-    });
+	$rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+		$rootScope.pageTitle = current.$$route.pageTitle;
+	});
 
 }]);
 
