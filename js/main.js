@@ -3,7 +3,7 @@
  */
 var app = angular.module('elitewareWebApp', ['ui.router', 'angular-flexslider', 'HomeModule', 
 											 'DetalleProyectoModule', 'AboutUsModule', 
-											 'EliteServiciosModule', 'Data']);
+											 'EliteServiciosModule', 'Data', 'w11k.angular-seo-header']);
 
 /**
  * Configure the Routes
@@ -14,12 +14,30 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 		.state("inicio", {
 			url:"/",
 			pageTitle: "Inicio",
-			templateUrl: "partials/home.html"
+			templateUrl: "partials/home.html",
+			data: {
+                head: {
+                    title: 'Eliteware - Home',
+                    keywords: ["desarrollo", "node", 'nodejs', "consultoria", "apps", "android"],
+                    description: "Eliteware una empresa de clase mundial",
+                    robots: "index,follow",
+                    canonical: 'http://localhost:8080/eliteware/home',
+                }
+            }
 		})
 		.state("home", {
 			url:"/home",
 			pageTitle: "Inicio",
-			templateUrl: "partials/home.html"
+			templateUrl: "partials/home.html",
+			data: {
+                head: {
+                    title: 'Eliteware - Home',
+                    keywords: ["desarrollo", "node", 'nodejs', "consultoria", "apps", "android"],
+                    description: "Eliteware una empresa de clase mundial",
+                    robots: "index,follow",
+                    canonical: 'http://localhost:8080/eliteware/home',
+                }
+            }
 		})
 		// About section
 		.state('about',{
@@ -29,7 +47,16 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 			pageTitle: "Acerca de Nosotros",
 			url:"/about/us",
 			templateUrl: "partials/about/about-us.html",
-			controller: "AboutUsController"
+			controller: "AboutUsController",
+			data: {
+                head: {
+                    title: 'Eliteware - Sobre nosotros',
+                    keywords: ["desarrollo", "node", 'nodejs', "consultoria", "apps", "android"],
+                    description: "Eliteware una empresa de clase mundial",
+                    robots: "index,follow",
+                    canonical: 'http://localhost:8080/eliteware/about/us',
+                }
+            }
 		})
 		.state("about.team", {
 			pageTitle: "Acerca de Nosotros",
@@ -73,10 +100,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 			templateUrl: "partials/portfolio-single-project.html",
 			controller: "DetalleProyectoController"
 		});
-		$locationProvider.html5Mode({
-			enabled: true,
-			requireBase: false
-		});
+		$locationProvider.html5Mode(true);
 });
 
 app.run(['$location', '$rootScope','$state', '$stateParams', 
