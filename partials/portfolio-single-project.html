@@ -1,0 +1,233 @@
+<div>
+    <!-- =========================================
+    breadcrumb
+    ========================================== -->
+    <!-- breadcrumb-wrapper -->
+    <section class="breadcrumb-wrapper">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="page-description">
+                    <h3>Todo lo que necesitas saber sobre {{proyectoSelected.titulo}}.</h3>
+                </div>
+            </div><!-- /row -->
+        </div><!-- /container -->
+    </section><!-- /breadcrumb-wrapper -->
+    <!-- =========================================
+    White Section
+    ========================================== -->
+    <section class="white-section">
+        <!-- container -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="project-flexslider" class="flexslider project-flexslider">
+                        <flex-slider slide="img in proyectoSelected.images">
+                            <li>
+                                <div class="img-figure-overlay">
+                                    <a href="{{img}}" title="{{proyectoSelected.titulo}}" onclick="return false" 
+                                    class="fancybox" data-fancybox-group="gallery" fancybox><i class="fa fa-search"></i></a>
+                                </div>
+                                <img ng-src="{{img}}" alt="{{proyectoSelected.titulo}} - {{index}}" style="height:100%" />
+                            </li>
+                        </flex-slider>
+                    </div><!-- /project-flexslider -->
+                </div><!-- /col-md-6 -->
+
+
+                <!-- =========================================
+                OverView
+                ========================================== -->
+                <!-- col-md-6 -->
+                <div class="col-md-6">
+
+                    <!-- project-OverView -->
+                    <div class="project-OverView">
+                        <!-- short-section-title -->
+                        <div class="short-section-title">
+                            <h3>Descripción</h3>
+                        </div><!-- /short-section-title -->
+                        <p>{{proyectoSelected.detalle1}}</p>
+                        <p>{{proyectoSelected.detalle2}}</p>
+                        <p><strong>Skills:</strong></p>
+                        <!-- skills-tag -->
+                        <ul class="skills-tag">
+                            <li><a href="javascript:void(0)" title="adobe Photshop">NodeJS</a></li>
+                            <li><a href="javascript:void(0)" title="adobe illustrator">AngularJS</a></li>
+                            <li><a href="javascript:void(0)" title="adobe indesign">Bussiness Logic</a></li>
+                            <li><a href="javascript:void(0)" title="adobe indesign">Análisis</a></li>
+                            <li><a href="javascript:void(0)" title="adobe indesign">Diseño</a></li>
+                        </ul><!-- /skills-tag -->
+                    </div><!-- /project-OverView -->
+                </div><!-- /col-md-6 -->
+
+                <div class="clearfix"></div>
+
+                <!-- =========================================
+                What Clients Say
+                ========================================== -->
+                <!-- col-md-6 -->
+                <div class="col-md-6">
+
+                    <!-- short-section-title -->
+                    <div class="short-section-title">
+                        <h3>Lo que dicen de nosotros</h3>
+                    </div><!-- /short-section-title -->
+
+                    <!-- cbp-qtrotator -->
+                    <div id="cbp-qtrotator" class="cbp-qtrotator" qtcontent>
+                        <!-- cbp-qtcontent -->
+                        <div class="cbp-qtcontent" ng-repeat="op in proyectoSelected.opiniones" >
+                            <blockquote>
+                                <p>{{op.opinion}}</p>
+                                <footer>{{op.autorOpinion}}</footer>
+                            </blockquote>
+                        </div><!-- /cbp-qtcontent -->
+                    </div><!-- /cbp-qtrotator -->
+
+                </div><!-- /col-md-6 -->
+
+
+                <!-- =========================================
+                More Details
+                ========================================== -->
+                <!-- col-md-6 -->
+                <div class="col-md-6">
+
+                        <!-- short-section-title -->
+                        <div class="short-section-title">
+                            <h3>Mas Detalles</h3>
+                        </div><!-- /short-section-title -->
+
+                        <!-- project-details -->
+                            <ul class="project-details">
+                                <li title="Eliteware - contacto@eliteware.io" data-rel="tooltip" data-placement="top">
+                                    <a href="javascript:void(0)" title="Autor Intelectual"><i class="fa fa-flag"></i></a>
+                                </li>
+                                <li title="Sitio Web" data-rel="tooltip" data-placement="top">
+                                    <img src="images/logowebsite.jpg" alt="Sitio web" width="97" height="100">
+                                </li>
+                                <li title="Enlace al Sitio" data-rel="tooltip" data-placement="top">
+                                    <a href="{{proyecto.link}}" title="Enlace" target="_blank">
+                                        <i class="fa fa-link"></i>
+                                    </a>
+                                </li>
+                            </ul><!-- /project-details -->
+
+                </div><!-- /col-md-6 -->
+
+            </div><!-- /row -->
+        </div><!-- /container -->
+    </section><!-- /section -->
+
+
+
+
+    <!-- =========================================
+    Gray Section
+    ========================================== -->
+    <section class="gray-section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+
+                <!-- col-md-12 -->
+                <div class="col-md-12">
+                    <!-- short-section-title -->
+                    <div class="short-section-title">
+                        <h3>Related Projects</h3>
+                    </div><!-- /short-section-title -->
+                </div><!-- /col-md-12 -->
+
+                <!-- latest-works -->
+                <ul class="latest-works related-projects">
+                    <!-- item 1 -->
+                    <li>
+                        <!-- img-figure-overlayer -->
+                        <div class="img-figure-overlayer">
+                            <a ui-sref="detalle" title="Detalles" ng-click="setProyectoEnPortafolio('yoplanner')" >
+                                <i class="fa fa-link"></i>
+                            </a>
+                            <a class="fancybox" data-fancybox-group="gallery2" onclick="return false;"
+                                href="images/work/yoplanner.png" title="YoPlanner - WebSite" >
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </div><!-- /img-figure-overlayer -->
+    
+                        <!-- img-figure -->
+                        <div class="img-figure">
+                            <!-- image -->
+                            <img src="images/work/thumbs/yoplanner_thumb.png" alt="YoPlanner - WebSite">
+                        </div><!-- /img-figure -->
+    
+                        <!-- title-caption -->
+                        <div class="title-caption">
+                            <span>YoPlanner</span>
+                            <span><i class="fa fa-globe" title="WebSite" data-rel="tooltip" data-placement="top"></i></span>
+                        </div><!-- /title-caption -->
+    
+                    </li><!-- /item 1 -->
+    
+                    <!-- item 2 -->
+                    <li>
+    
+                        <!-- img-figure-overlayer -->
+                        <div class="img-figure-overlayer">
+                            <a ui-sref="detalle" title="Detalles" ng-click="setProyectoEnPortafolio('biocalpert')" >
+                                <i class="fa fa-link"></i>
+                            </a>
+                            <a class="fancybox" data-fancybox-group="gallery2" onclick="return false;"
+                            href="images/work/biocalper.png" title="Administrador de Inventario - Web">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </div><!-- /img-figure-overlayer -->
+    
+                        <!-- img-figure -->
+                        <div class="img-figure">
+                            <!-- image -->
+                            <img src="images/work/thumbs/biocalper.png" alt="Administrador de Inventario" height="160">
+                        </div><!-- /img-figure -->
+    
+                        <!-- title-caption -->
+                        <div class="title-caption">
+                            <span>Biocalpert</span>
+                            <span><i class="fa fa-mobile" title="App Móvil" data-rel="tooltip" data-placement="top"></i></span>
+                        </div><!-- /title-caption -->
+    
+                    </li><!-- /item 2 -->
+    
+                    <!-- item 3 -->
+                    <li>
+    
+                        <!-- img-figure-overlayer -->
+                        <div class="img-figure-overlayer">
+                            <a ui-sref="detalle" title="Detalles" ng-click="setProyectoEnPortafolio('mitianguis')" >
+                                <i class="fa fa-link"></i>
+                            </a>
+                            <a class="fancybox" data-fancybox-group="gallery2" onclick="return false;"
+                            href="images/work/mitianguis.png" title="MiTianguis - Website">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </div><!-- /img-figure-overlayer -->
+    
+                        <!-- img-figure -->
+                        <div class="img-figure">
+                            <!-- image -->
+                            <img src="images/work/thumbs/mitianguis.png" alt="Ecommerce Web">
+                        </div><!-- /img-figure -->
+    
+                        <!-- title-caption -->
+                        <div class="title-caption">
+                            <span>MiTianguis</span>
+                            <span><i class="fa fa-picture-o" title="WebSite" data-rel="tooltip" data-placement="top"></i></span>
+                        </div><!-- /title-caption -->
+                    </li><!-- /item 3 -->
+                </ul><!-- /latest-works -->
+
+            </div><!-- /row -->
+        </div><!-- /container -->
+    </section><!-- /section -->
+</div>
+

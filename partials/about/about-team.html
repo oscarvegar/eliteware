@@ -1,0 +1,375 @@
+
+<!-- =========================================
+breadcrumb
+========================================== -->
+<!-- breadcrumb-wrapper -->
+<section class="breadcrumb-wrapper">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <div class="page-description">
+                <h3>Todo lo que necesitas saber acerca de {{team.nombre}}, y las opciones de contacto.</h3>
+            </div>
+
+        </div><!-- /row -->
+    </div><!-- /container -->
+</section><!-- /breadcrumb-wrapper -->
+
+    
+
+
+<!-- =========================================
+White Section
+========================================== -->
+<!-- white-section -->
+<section class="white-section">
+
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <!-- about-me-wrapper -->
+            <div class="about-me-wrapper">
+
+                <!-- col-md-6 -->
+                <div class="col-md-6">
+
+                    <!-- about-me -->
+                    <div class="about-me">
+                        <!-- img-cover -->
+                        <div class="img-cover">
+                            <div class="thumbnail">
+                                <img src="images/team/cover/1-726x408.jpg" alt="member cover" />
+                            </div>
+                        </div><!-- /img-cover -->
+
+                        <!-- member-img -->
+                        <div class="member-img">
+                            <div class="thumbnail">
+                                <img ng-src="{{team.imagen}}" alt="member cover" />
+                            </div>
+                        </div><!-- /member-img -->
+
+                        <!-- member-info -->
+                        <div class="member-info">
+                            <h2 class="name">{{team.nombreCorto}}</h2>
+                            <h3 class="title">Full Stack Developer</h3>
+                        </div><!-- /member-info -->
+
+
+                    </div><!-- /about-me -->
+
+                </div><!-- /col-md-6 -->
+
+                <!-- col-md-3 -->
+                <div class="col-md-3">
+
+                    <!-- text-widget -->
+                    <div class="text-widget">
+
+                        <!-- text-widget-title -->
+                        <div class="text-widget-title">
+                            <h3>Detalles personales</h3>
+                        </div><!-- /text-widget-title -->
+
+                        <!-- personal-details -->
+                        <ul class="personal-details">
+
+                            <!-- item 1 -->
+                            <li>
+                                <span class="title">Nombre</span>
+                                <span class="value">{{team.nombre}}</span>
+                            </li><!-- /item 1 -->
+
+                            <!-- item 3 -->
+                            <li>
+                                <span class="title">Tel&eacute;fono</span>
+                                <span class="value">{{team.telefono}}</span>
+                            </li><!-- /item 3 -->
+
+                            <!-- item 4 -->
+                            <li>
+                                <span class="title">Nacionalidad</span>
+                                <span class="value">Mexicana</span>
+                            </li><!-- /item 4 -->
+
+                            <!-- item 5 -->
+                            <li>
+                                <span class="title">Direcci&oacute;n</span>
+                                <span class="value">México, D.F.</span>
+                            </li><!-- /item 5 -->
+
+                            <!-- item 6 -->
+                            <li>
+                                <span class="title">Email</span>
+                                <span class="value">{{team.correo}}</span>
+                            </li><!-- /item 6 -->
+
+                            <!-- item 7 -->
+                            <li>
+                                <span class="title">T&iacute;tulo</span>
+                                <span class="value">{{team.profesion}}</span>
+                            </li><!-- /item 7 -->
+
+                        </ul><!-- /personal-details -->
+
+                        <!-- member-social-icons -->
+                        <div class="member-social-icons">
+                            <ul>
+                                <li>
+                                    <a href="{{team.twitter}}" title="Twitter" data-rel="tooltip" data-placement="top" target="_blank">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li><li>
+                                    <a href="{{team.facebook}}" title="Facebook" data-rel="tooltip" data-placement="top" target="_blank">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                </li><li ng-show="false">
+                                    <a href="javascript:void(0)" title="Google Plus" data-rel="tooltip" data-placement="top" target="_blank">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                </li><li ng-show="false">
+                                    <a href="javascript:void(0)" title="Pinterest" data-rel="tooltip" data-placement="top" target="_blank">
+                                        <i class="fa fa-pinterest"></i>
+                                    </a>
+                                </li><li>
+                                    <a href="{{team.linkedin}}" title="LinkedIn" data-rel="tooltip" data-placement="top" target="_blank">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div><!-- /member-social-icons -->
+                    </div><!-- /text-widget -->
+                </div><!-- /col-md-3 -->
+
+                <!-- col-md-3 -->
+                <div class="col-md-3">
+                    <!-- text-widget -->
+                    <div class="text-widget">
+                        <!-- text-widget-title -->
+                        <div class="text-widget-title">
+                            <h3>Habilidades</h3>
+                        </div><!-- /text-widget-title -->
+                        <!-- progress-bar -->
+                        <div class="progress" ng-repeat="exp in team.experiencia" >
+                            <div class="progress-bar progress-bar-main" id="pro{{$index}}"
+                                 data-progress-percent="{{exp.porcentaje}}%">
+                                <!-- skill -->
+                                <span>{{exp.nombre}}</span><span data-to="{{exp.porcentaje}}">0</span>
+                            </div>
+                        </div><!-- /progress-bar -->
+                    </div><!-- /text-widget -->
+                </div><!-- /col-md-3 -->
+                
+            </div><!-- /about-me-wrapper -->
+        </div><!-- /row -->
+    </div><!-- /container -->
+</section><!-- /white-section -->
+
+
+
+
+<!-- =========================================
+Gray Section ( Our History )
+========================================== -->
+<!-- gray-section -->
+<section class="gray-section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- col-md-4 -->
+            <div class="col-md-4">
+                <!-- text-widget -->
+                <div class="text-widget">
+                    <!-- text-widget-title -->
+                    <div class="text-widget-title">
+                        <h3>Acerca de {{team.nombreCorto}}</h3>
+                    </div><!-- /text-widget-title -->
+
+                    <p>{{team.descripcion}}</p>
+                        <p><i class="fa fa-check base-color"></i> {{team.descripcionCorta1}}</p>
+                        <p><i class="fa fa-check base-color"></i> {{team.descripcionCorta2}}</p>
+
+                </div><!-- /text-widget -->
+
+            </div><!-- /col-md-4 -->
+
+            <!-- col-md-4 -->
+            <div class="col-md-4">
+
+                <!-- text-widget -->
+                <div class="text-widget">
+
+                    <!-- text-widget-title -->
+                    <div class="text-widget-title">
+                        <h3>Posiciones y experiencia</h3>
+                    </div><!-- /text-widget-title -->
+
+                    <!-- Accordion container -->
+                    <div class="ac-container" id="ac-container">
+                        <ul>
+                            <!-- item 1 -->
+                            <li ng-repeat="posicion in team.posiciones">
+                                <!-- Accordion Title -->
+                                <a href="javascript:void(0)">{{posicion.titulo}}</a>
+                                <!-- Accordion Content -->
+                                <div class="ac-content">
+                                    <p>{{posicion.descripcion}}.</p>
+                                </div><!-- /Accordion Content -->
+                            </li><!-- /item 1 -->
+                        </ul>
+                    </div><!-- /Accordion container -->
+                </div><!-- /text-widget -->
+            </div><!-- /col-md-4 -->
+            <!-- col-md-4 -->
+            <div class="col-md-4">
+
+                <!-- text-widget -->
+                <div class="text-widget">
+
+                    <!-- text-widget-title -->
+                    <div class="text-widget-title">
+                        <h3>Qu&eacute; Comentan los Clientes</h3>
+                    </div><!-- /text-widget-title -->
+
+                    <!-- testimonial-flexslider -->
+                    <div id="testimonial-flexslider" class="flexslider testimonial-flexslider">
+                        <flex-slider slide="comment in team.comentarios track by $index">
+                            <!-- slide 1 -->
+                            <li>
+                                <!-- testimonial -->
+                                <div class="testimonial">
+                                    <p>{{comment.descripcion}}</p>
+                                </div><!-- /testimonial -->
+                                <!-- arrow-down -->
+                                <div class="arrow-down"></div>
+                                <!-- client -->
+                                <div class="client">
+                                    <!-- thumbnail -->
+                                    <div class="thumbnail">
+                                        <img src="images/clients/client-1-60x60.jpg" alt="Cliente">
+                                    </div><!-- /thumbnail -->
+                                    <p><strong>{{comment.autor}}</strong><span>Cliente</span></p>
+                                </div><!-- /client -->
+                            </li><!-- /slide 1 -->
+                        </flex-slider><!-- /slides -->
+                    </div><!-- /testimonial-flexslider -->
+
+                </div><!-- /text-widget -->
+
+            </div><!-- /col-md-4 -->
+
+        </div><!-- /row -->
+    </div><!-- /container -->
+</section><!-- /gray-section -->
+
+
+
+
+<!-- =========================================
+White Section ( My Work )
+========================================== -->
+<section class="white-section" ng-show="false">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- col-md-12 -->
+            <div class="col-md-12">
+                <!-- short-section-title -->
+                <div class="short-section-title">
+                    <h3>Mis Desarrollos</h3>
+                </div><!-- /short-section-title -->
+            </div><!-- /col-md-12 -->
+            <!-- latest-works -->
+            <ul class="latest-works my-work">
+                <!-- item 1 -->
+                <li>
+                    <!-- img-figure-overlayer -->
+                    <div class="img-figure-overlayer">
+                        <a data-toggle="modal" href="#lwModal" title="Details">
+                            <i class="fa fa-link"></i>
+                        </a>
+                        <a class="fancybox" data-fancybox-group="gallery3" href="images/work/2-880x495.jpg" title="Party Animals - Brand">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </div><!-- /img-figure-overlayer -->
+
+                    <!-- img-figure -->
+                    <div class="img-figure">
+                        <!-- image -->
+                        <img src="images/work/thumbs/2-545x307.jpg" alt="Work 1">
+                    </div><!-- /img-figure -->
+
+                    <!-- title-caption -->
+                    <div class="title-caption">
+                        <span>Party Animals</span>
+                        <span><i class="fa fa-dot-circle-o"  title="Brand" data-rel="tooltip" data-placement="top"></i></span>
+                    </div><!-- /title-caption -->
+
+                </li><!-- /item 1 -->
+
+                <!-- item 2 -->
+                <li>
+
+                    <!-- img-figure-overlayer -->
+                    <div class="img-figure-overlayer">
+                        <a data-toggle="modal" href="#lwModal" title="Details">
+                            <i class="fa fa-link"></i>
+                        </a>
+                        <a class="fancybox" data-fancybox-group="gallery3" href="images/work/3-880x495.jpg" title="Freedom Fields - Image">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </div><!-- /img-figure-overlayer -->
+
+                    <!-- img-figure -->
+                    <div class="img-figure">
+                        <!-- image -->
+                        <img src="images/work/thumbs/3-545x307.jpg" alt="Work 2">
+                    </div><!-- /img-figure -->
+
+                    <!-- title-caption -->
+                    <div class="title-caption">
+                        <span>Freedom Fields</span>
+                        <span><i class="fa fa-picture-o"  title="Image" data-rel="tooltip" data-placement="top"></i></span>
+                    </div><!-- /title-caption -->
+
+                </li><!-- /item 2 -->
+
+                <!-- item 3 -->
+                <li>
+
+                    <!-- img-figure-overlayer -->
+                    <div class="img-figure-overlayer">
+                        <a data-toggle="modal" href="#lwModal" title="Details">
+                            <i class="fa fa-link"></i>
+                        </a>
+                        <a class="fancybox" data-fancybox-group="gallery3" href="images/work/4-880x495.jpg" title="Creative - Brand">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </div><!-- /img-figure-overlayer -->
+
+                    <!-- img-figure -->
+                    <div class="img-figure">
+                        <!-- image -->
+                        <img src="images/work/thumbs/4-545x307.jpg" alt="Work 3">
+                    </div><!-- /img-figure -->
+
+                    <!-- title-caption -->
+                    <div class="title-caption">
+                        <span>Creative</span>
+                        <span><i class="fa fa-dot-circle-o"  title="Brand" data-rel="tooltip" data-placement="top"></i></span>
+                    </div><!-- /title-caption -->
+
+                </li><!-- /item 3 -->
+
+            </ul><!-- /latest-works -->
+
+
+        </div><!-- /row -->
+    </div><!-- /container -->
+</section><!-- /section -->

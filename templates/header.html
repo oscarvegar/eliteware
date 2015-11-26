@@ -22,7 +22,7 @@ Menu
                     </li><!-- /gn-search-item -->
                     <!-- Home -->
                     <li>
-                        <a class="gn-active" href="#/home" title="Inicio" ng-click="loadHome()">
+                        <a class="gn-active" ui-sref="inicio" title="Inicio" ng-click="loadHome()">
                             <i class="fa fa-home"></i> Inicio
                         </a>
                     </li><!-- /Home -->
@@ -33,7 +33,7 @@ Menu
                         </a>
                         <!-- gn-submenu -->
                         <ul class="gn-submenu">
-                            <li><a href="#/about-us" title="Nosotros">Nosotros</a></li>
+                            <li><a ui-sref="about.us" title="Nosotros">Nosotros</a></li>
                             <!--<li><a href="about-me.html" title="About Me">About Me</a></li>-->
                         </ul><!-- /gn-submenu -->
                     </li><!-- /About Us -->
@@ -42,15 +42,15 @@ Menu
                         <a class="gn-dropdown" href="javascript:void(0)" title="Seccciones"><i class="fa fa-file-o"></i> Seccciones</a>
                         <!-- gn-submenu -->
                         <ul class="gn-submenu">
-                            <li><a href="page-our-services.html" title="Nuestros Servicios">Nuestros Servicios</a></li>
+                            <li><a ui-sref="servicios" title="Nuestros Servicios">Nuestros Servicios</a></li>
                             <!--<li><a href="page-pricing-tables.html" title="Pricing Tables">Pricing Tables</a></li>-->
-                            <li><a href="page-team.html" title="Equipo">Equipo</a></li>
+                            <li ng-show="false"><a href="page-team.html" title="Equipo">Equipo</a></li>
                             <!--<li><a href="page-404-error.html" title="404 Error">404 Error</a></li>-->
-                            <li><a href="page-sitemap.html" title="Mapa del Sitio">Mapa del Sitio</a></li>
+                            <li><a ui-sref="mapasitio" title="Mapa del Sitio">Mapa del Sitio</a></li>
                         </ul><!-- /gn-submenu -->
                     </li><!-- /Pages -->
                     <!-- Portfolio -->
-                    <li>
+                    <li ng-show="false">
                         <a class="gn-dropdown" href="javascript:void(0)" title="Portafolio"><i class="fa fa-briefcase"></i> Portafolio</a>
                         <!-- gn-submenu -->
                         <ul class="gn-submenu">
@@ -63,7 +63,7 @@ Menu
                     </li><!-- /Portfolio -->
 
                     <!-- Blog -->
-                    <li>
+                    <li ng-show="false">
                         <a class="gn-dropdown" href="javascript:void(0)" title="Blog"><i class="fa fa-pencil"></i> Blog</a>
 
                         <!-- gn-submenu -->
@@ -77,7 +77,7 @@ Menu
 
                     <!-- Contact Us -->
                     <li>
-                        <a href="#/contact-us" title="Cont&aacute;ctanos"><i class="fa fa-phone"></i> Cont&aacute;ctanos</a>
+                        <a ui-sref="contact-us" title="Cont&aacute;ctanos"><i class="fa fa-phone"></i> Cont&aacute;ctanos</a>
                     </li><!-- /Contact Us -->
 
                 </ul><!-- /gn-menu -->

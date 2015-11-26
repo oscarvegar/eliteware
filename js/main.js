@@ -1,90 +1,90 @@
 /**
  * Main AngularJS Web Application
  */
-var app = angular.module('elitewareWebApp', ['ngRoute', 'HomeModule']);
+var app = angular.module('elitewareWebApp', ['ui.router', 'angular-flexslider', 'HomeModule', 
+											 'DetalleProyectoModule', 'AboutUsModule', 
+											 'EliteServiciosModule', 'Data']);
 
 /**
  * Configure the Routes
  */
-app.config(function($routeProvider) {
-	$routeProvider
-		.when("/", {
+app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+	$urlRouterProvider.otherwise("/");
+	$stateProvider
+		.state("inicio", {
+			url:"/",
 			pageTitle: "Inicio",
 			templateUrl: "partials/home.html"
 		})
-		.when("/home", {
+		.state("home", {
+			url:"/home",
 			pageTitle: "Inicio",
 			templateUrl: "partials/home.html"
 		})
-		// Pages
-		.when("/about-us", {
+		// About section
+		.state('about',{
+			templateUrl: 'partials/about.html'
+		})
+		.state("about.us", {
 			pageTitle: "Acerca de Nosotros",
-			templateUrl: "partials/about-us.html",
-			controller: "PageCtrl"
+			url:"/about/us",
+			templateUrl: "partials/about/about-us.html",
+			controller: "AboutUsController"
 		})
-		.when("/faq", {
-			templateUrl: "partials/faq.html",
-			controller: "PageCtrl"
+		.state("about.team", {
+			pageTitle: "Acerca de Nosotros",
+			url:"/about/team/:teamId",
+			templateUrl: "partials/about/about-team.html",
+			controller: "AboutUsController"
 		})
-		.when("/contact-us", {
+		// Secciones/servicios section
+		.state("servicios", {
+			url:"/servicios",
+			pageTitle: "Nuestros Servicios",
+			templateUrl: "partials/page-our-services.html",
+			controller: "EliteServiciosController"
+		})
+		.state("mapasitio", {
+			url:"/mapasitio",
+			pageTitle: "Mapa del Sitio",
+			templateUrl: "partials/page-sitemap.html",
+			controller: "EliteServiciosController"
+		})
+		.state("contact-us", {
 			pageTitle: "Contáctanos",
+			url:"/contact-us",
 			templateUrl: "partials/contact-us.html",
 			controller: "PageCtrl"
 		})
-		/* etc… routes to other pages… */
-		.when("/about-alfredo-godinez", {
-			pageTitle: "Acerca de Alfredo Godinez",
-			templateUrl: "partials/about/about-alfredo-godinez.html",
-			controller: "PageCtrl"
-		})
-		.when("/about-daniel-morales", {
-			pageTitle: "Acerca de Daniel Morales",
-			templateUrl: "partials/about/about-daniel-morales.html",
-			controller: "PageCtrl"
-		})
-		.when("/about-eladio-rodriguez", {
-			pageTitle: "Acerca de Eladio Rodriguez",
-			templateUrl: "partials/about/about-eladio-rodriguez.html",
-			controller: "PageCtrl"
-		})
-		.when("/about-oscar-garcia", {
-			pageTitle: "Acerca de Oscar García",
-			templateUrl: "partials/about/about-oscar-garcia.html",
-			controller: "PageCtrl"
-		})
-		.when("/about-oscar-vega", {
-			pageTitle: "Acerca de Oscar Vega",
-			templateUrl: "partials/about/about-oscar-vega.html",
-			controller: "PageCtrl"
-		})
-		.when("/about-rafael-delgadillo", {
-			pageTitle: "Acerca de Rafael Delgadillo",
-			templateUrl: "partials/about/about-rafael-delgadillo.html",
-			controller: "PageCtrl"
-		})
+		
 		// Blog
-		.when("/blog", {
+		.state("/blog", {
 			templateUrl: "partials/blog.html",
 			controller: "BlogCtrl"
 		})
-		.when("/blog/post", {
+		.state("/blog/post", {
 			templateUrl: "partials/blog_item.html",
 			controller: "BlogCtrl"
 		})
-		// else 404
-		.otherwise("/404", {
-			pageTitle: "Página no encontrada",
-			templateUrl: "partials/page-404-error.html",
-			controller: "PageCtrl"
+		// Detalle Proyecto
+		.state("detalle", {
+			pageTitle: "Detalle",
+			url:"/detalle",
+			templateUrl: "partials/portfolio-single-project.html",
+			controller: "DetalleProyectoController"
 		});
-
+		$locationProvider.html5Mode({
+			enabled: true,
+			requireBase: false
+		});
 });
 
-app.run(['$location', '$rootScope', function($location, $rootScope) {
-	$rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
-		$rootScope.pageTitle = current.$$route.pageTitle;
+app.run(['$location', '$rootScope','$state', '$stateParams', 
+function($location, $rootScope, $state, $stateParams) {
+	$rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+		$rootScope.pageTitle = toState.pageTitle;
 	});
-
+	console.log("State in Run: ", $state.current);
 }]);
 
 /**
@@ -98,6 +98,100 @@ app.controller('BlogCtrl', function( /* $scope, $location, $http */ ) {
  * Controls all other Pages
  */
 app.controller('PageCtrl', function( /* $scope, $location, $http */ ) {
-
+	
 });
 
+app.directive('fancybox', function() {
+  return {
+    restrict: 'A',
+    link: function(scope, element) {
+      	if (scope.$last){
+			if (scope.$last){
+				setTimeout(function() {
+					$('.fancybox').fancybox({
+						helpers : { title : { type : 'over' },
+							overlay : {
+								speedOut : 0,
+								locked: false
+							}
+						}
+					});
+				},1);  
+			}
+	  	} 
+    }
+  };
+});
+
+app.directive('flexslider', function () {
+  return {
+    link: function (scope, element, attrs) {
+		console.log("directive slider: ", element);
+		setTimeout(function(){
+			element.flexslider({
+				animation: "slide",
+				pauseOnHover: true,
+				video: true,
+				controlNav: true,
+				directionNav: false,
+				useCSS: false,
+				slideshowSpeed: 10000
+			});	
+			$('.fancybox').fancybox({
+				helpers : { title : { type : 'over' },
+					overlay : {
+						speedOut : 0,
+						locked: false
+					}
+				}
+			});
+		},1);
+    }
+  }
+});
+
+app.directive('qtcontent', function () {
+  return {
+    link: function (scope, element, attrs) {
+		setTimeout(function(){
+			console.log("qtcontent")
+			$('#cbp-qtrotator').cbpQTRotator({
+				// transition speed (ms)
+				speed : 700,
+				// transition easing
+				easing : 'ease',
+				// rotator interval (ms)
+				interval : 8000
+			});
+		},1);
+    }
+  }
+});
+
+app.directive('progressbar', function(){
+	return{
+		link:function(scope, element, attrs){
+			/* ==========================================================================
+			Progress Bars Animation
+			========================================================================== */
+			setTimeout(function(){
+				$("[data-progress-percent]").each(function () {
+					var $this = $(this);
+					$this.waypoint(function () {
+						$this.animate({
+							width: $this.attr("data-progress-percent")
+						}, 1700, "linear");
+					}, {offset: '100%', triggerOnce: true });
+				});
+			
+				$(".progress [data-to]").each(function () {
+					var $this = $(this);
+			
+					$this.waypoint(function () {
+						$this.countTo({speed: 1000});
+					}, {offset: '100%', triggerOnce: true});
+				});
+			},1);
+		}
+	}	
+})
